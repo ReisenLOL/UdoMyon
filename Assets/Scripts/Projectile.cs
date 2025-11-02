@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
     public float speed;
     public float damage;
     public float timeUntilAutoDestroy;
+    public float knockbackForce;
+    public Entity originEntity;
 
     public void RotateToTarget(Vector3 direction)
     {
@@ -25,6 +27,8 @@ public class Projectile : MonoBehaviour
     protected virtual void OnProjectileHit(Entity entityHit)
     {
         entityHit.TakeDamage(damage);
+        Vector3 knockbackDirection = (entityHit.transform.position - originEntity.transform.position).normalized;
+        entityHit.rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other)

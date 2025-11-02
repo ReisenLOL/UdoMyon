@@ -29,7 +29,7 @@ public class PlayerAbility : MonoBehaviour
     {
         
     }
-    void Update()
+    protected virtual void Update()
     {
         if (onCooldown)
         {

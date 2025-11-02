@@ -9,6 +9,7 @@ public class Entity : MonoBehaviour //entity and unit are for health and stats o
     public float maxHealth;
     public float defense;
     public bool invulnerable;
+    public Rigidbody2D rb;
     //public DamageNumberSO onHitDamageNumber;
     public virtual void TakeDamage(float damage)
     {

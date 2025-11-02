@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3803566967981215608}
   - component: {fileID: 5303196024774101344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8881906471847100234}
   - component: {fileID: 5887148480104603712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: -1106419941550601652}
   - component: {fileID: 8525481770958903851}
   - component: {fileID: -8213110083878852113}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Reisen
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -464,7 +464,6 @@ MonoBehaviour:
   rb: {fileID: -252856212998483230}
   mainAttack: {fileID: 0}
   mainAttackInstance: {fileID: 0}
-  mouseWorldPos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
 --- !u!114 &8525481770958903851
 MonoBehaviour:
@@ -479,16 +478,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Reisen
-  health: 10
-  maxHealth: 10
+  health: 100
+  maxHealth: 100
   defense: 0
   invulnerable: 0
+  rb: {fileID: -252856212998483230}
   speed: 7
   damage: 10
   attackSpeed: 1
   canAttack: 1
   canMove: 1
-  rb: {fileID: -252856212998483230}
   audioSource: {fileID: 1528591134725528693}
 --- !u!114 &-8213110083878852113
 MonoBehaviour:
@@ -518,7 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679465629856013033}
   - component: {fileID: 2856403612068018504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6337215160294803450}
   - component: {fileID: 3822421026168610761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3286601392575257676}
   - component: {fileID: 5225221309685734766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8254750475576030057}
   - component: {fileID: 4251241273886852324}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2474261083040234243}
   - component: {fileID: 3370987148326056085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5624864917658823092}
   - component: {fileID: 8156009721845420388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1040,7 +1039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822644928839351700}
   - component: {fileID: 507089317035896356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

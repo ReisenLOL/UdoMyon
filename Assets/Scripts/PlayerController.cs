@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public PlayerAbility mainAttack;
     public PlayerAbility mainAttackInstance;
     [Header("Cache")]
-    public Vector3 mouseWorldPos;
     public Camera cam;
 
     private void Awake()
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             mainAttackInstance.ActivateAbility();
         }
@@ -39,6 +38,6 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        mouseWorldPos =  cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,cam.nearClipPlane));
+
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Friendly
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Entity
+  - Attack
+  - EntityRange
   - 
   - 
   - 

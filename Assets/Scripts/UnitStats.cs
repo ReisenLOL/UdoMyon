@@ -10,6 +10,5 @@ public class UnitStats : Entity
     public bool canAttack = true;
     public bool canMove = true;
     [Header("CACHE")]
-    public Rigidbody2D rb;
     public AudioSource audioSource;
 }

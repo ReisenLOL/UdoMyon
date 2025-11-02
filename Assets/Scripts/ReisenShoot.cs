@@ -8,6 +8,7 @@ public class ReisenShoot : PlayerAbility
         Projectile newProjectile = Instantiate(projectile, transform.position, projectile.transform.rotation);
         newProjectile.damage = thisPlayer.stats.damage;
         newProjectile.tag = "Friendly";
-        newProjectile.RotateToTarget(thisPlayer.mouseWorldPos);
+        newProjectile.originEntity = thisPlayer.stats;
+        newProjectile.RotateToTarget(PlayerSwitcher.instance.mouseWorldPos);
     }
 }

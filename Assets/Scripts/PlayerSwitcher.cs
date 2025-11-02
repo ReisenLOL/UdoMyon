@@ -5,16 +5,29 @@ using UnityEngine;
 
 public class PlayerSwitcher : MonoBehaviour
 {
+    #region Statication
+    public static PlayerSwitcher instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+    #endregion
     [Header("UI")] 
     public TextMeshProUGUI playerText;
     [Header("Players")]
     public PlayerController[] players;
-
-    public CinemachineCamera cam;
-    
+    public Camera cam;
+    public CinemachineCamera cineCam;
+    public Vector2 mouseWorldPos;
 
     private void Update()
     {
+        mouseWorldPos =  cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,cam.nearClipPlane));
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SwitchPlayer(0); //yeah that's right we're starting arrays from 1 nevermind that's too complicated
@@ -28,7 +41,7 @@ public class PlayerSwitcher : MonoBehaviour
     private void SwitchPlayer(int playerNumber)
     {
         playerText.text = $"Player: {players[playerNumber].stats.entityName}";
-        cam.Follow = players[playerNumber].transform;
+        cineCam.Follow = players[playerNumber].transform;
         foreach (PlayerController player in players)
         {
             if (player != players[playerNumber] && player.enabled)
@@ -37,7 +50,7 @@ public class PlayerSwitcher : MonoBehaviour
                 player.npcSelf.enabled = true;
                 player.rb.linearVelocity = Vector2.zero;
             }
-            else
+            else if (player == players[playerNumber] && !player.enabled)
             {
                 player.enabled = true;
                 player.npcSelf.enabled = false;
