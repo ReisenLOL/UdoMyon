@@ -8,15 +8,18 @@ public class NPCController : MonoBehaviour
     public float maximumPlayerDistance;
     public float closestTargetDistance;
     public float maximumTargetDistance;
-    public Transform target;
 
     private void Update()
     {
+        if (playerController.stats.closestTarget)
+        {
+            playerController.mainAttackInstance.ActivateAbility();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (!target)
+        if (!playerController.stats.closestTarget)
         {
             float distanceToPlayer = Vector3.Distance(playerToFollow.transform.position, transform.position);
             if (distanceToPlayer > maximumPlayerDistance)
@@ -29,10 +32,10 @@ public class NPCController : MonoBehaviour
             }
             return;
         }
-        float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+        float distanceToTarget = Vector3.Distance(playerController.stats.closestTarget.transform.position, transform.position);
         if (distanceToTarget < closestTargetDistance)
         {
-            playerController.rb.linearVelocity = -(target.transform.position - transform.position).normalized * playerController.stats.speed;
+            playerController.rb.linearVelocity = -(playerController.stats.closestTarget.transform.position - transform.position).normalized * playerController.stats.speed;
         }
         else if (distanceToTarget >= closestTargetDistance && distanceToTarget <= maximumTargetDistance)
         {
@@ -40,7 +43,7 @@ public class NPCController : MonoBehaviour
         }
         else
         {
-            playerController.rb.linearVelocity = (target.transform.position - transform.position).normalized * playerController.stats.speed;
+            playerController.rb.linearVelocity = (playerController.stats.closestTarget.transform.position - transform.position).normalized * playerController.stats.speed;
         }
     }
 }

@@ -9,6 +9,13 @@ public class ReisenShoot : PlayerAbility
         newProjectile.damage = thisPlayer.stats.damage;
         newProjectile.tag = "Friendly";
         newProjectile.originEntity = thisPlayer.stats;
-        newProjectile.RotateToTarget(PlayerSwitcher.instance.mouseWorldPos);
+        if (!thisPlayer.enabled && thisPlayer.stats.closestTarget)
+        {
+            newProjectile.RotateToTarget(thisPlayer.stats.closestTarget.transform.position);
+        }
+        else
+        {
+            newProjectile.RotateToTarget(PlayerSwitcher.instance.mouseWorldPos);
+        }
     }
 }

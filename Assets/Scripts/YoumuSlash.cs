@@ -31,9 +31,16 @@ public class YoumuSlash : PlayerAbility
     protected override void Update()
     {
         base.Update();
-        if (thisPlayer.enabled && canRotate)
+        if (canRotate)
         {
-            transform.Lookat2D(PlayerSwitcher.instance.mouseWorldPos);
+            if (thisPlayer.enabled)
+            {
+                transform.Lookat2D(PlayerSwitcher.instance.mouseWorldPos);
+            }
+            else if (!thisPlayer.enabled && thisPlayer.stats.closestTarget)
+            {
+                transform.Lookat2D(thisPlayer.stats.closestTarget.transform.position);
+            }
         }
     }
 
@@ -44,7 +51,7 @@ public class YoumuSlash : PlayerAbility
     protected override void AbilityEffects()
     {
         
-        foreach (Entity entityFound in enemiesInRange)
+        foreach (Entity entityFound in enemiesInRange.ToArray())
         {
             entityFound.TakeDamage(thisPlayer.stats.damage);
             Vector3 knockbackDirection = (entityFound.transform.position - thisPlayer.transform.position).normalized;

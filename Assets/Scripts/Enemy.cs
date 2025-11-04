@@ -4,38 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public List<Entity> unitsInRange = new();
-    public Entity closestTarget = null;
     public Rigidbody2D rb;
     public UnitStats stats;
-    private Entity FindClosestTarget()
-    {
-        Entity foundEntity = null;
-        foreach (Entity entity in unitsInRange.ToArray())
-        {
-            if (!foundEntity || Vector3.Distance(entity.transform.position, transform.position) <
-                Vector3.Distance(foundEntity.transform.position, transform.position))
-            {
-                foundEntity = entity;
-            }
-        }
-        return foundEntity;
-    }
+    public float closestTargetDistance;
+    public float maximumTargetDistance;
 
-    private void Update()
-    {
-        closestTarget = FindClosestTarget();
-    }
-
+    
     private void FixedUpdate()
     {
-        if (closestTarget)
+        if (stats.closestTarget)
         {
-            rb.linearVelocity = (closestTarget.transform.position - transform.position).normalized * stats.speed;
-        }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
+            float distanceToTarget = Vector3.Distance(stats.closestTarget.transform.position, transform.position);
+            if (distanceToTarget < closestTargetDistance)
+            {
+                rb.linearVelocity = -(stats.closestTarget.transform.position - transform.position).normalized * stats.speed;
+            }
+            else if (distanceToTarget >= closestTargetDistance && distanceToTarget <= maximumTargetDistance)
+            {
+                rb.linearVelocity = Vector3.zero;
+            }
+            else
+            {
+                rb.linearVelocity = (stats.closestTarget.transform.position - transform.position).normalized * stats.speed;
+            }
         }
     }
 }
