@@ -17,8 +17,12 @@ public class PlayerSwitcher : MonoBehaviour
         instance = this;
     }
     #endregion
+
     [Header("UI")] 
-    public TextMeshProUGUI playerText;
+    public Transform playerArrow;
+
+    public Transform player1;
+    public Transform player2;
     [Header("Players")]
     public PlayerController[] players;
     public Camera cam;
@@ -40,7 +44,15 @@ public class PlayerSwitcher : MonoBehaviour
 
     private void SwitchPlayer(int playerNumber)
     {
-        playerText.text = $"Player: {players[playerNumber].stats.entityName}";
+        if (playerNumber == 0)
+        {
+            playerArrow.transform.SetParent(player1);
+        }
+        else
+        {
+            playerArrow.transform.SetParent(player2);
+        }
+        playerArrow.localPosition = new Vector3(-200, 0, 0);
         cineCam.Follow = players[playerNumber].transform;
         foreach (PlayerController player in players)
         {

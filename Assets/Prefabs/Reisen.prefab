@@ -188,8 +188,8 @@ GameObject:
   - component: {fileID: -252856212998483230}
   - component: {fileID: 1528591134725528693}
   - component: {fileID: -1106419941550601652}
-  - component: {fileID: 8525481770958903851}
   - component: {fileID: -8213110083878852113}
+  - component: {fileID: 2786652135533651321}
   m_Layer: 6
   m_Name: Reisen
   m_TagString: Friendly
@@ -459,39 +459,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449b1eb1b0eb3002bb16f46769354e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 8525481770958903851}
+  stats: {fileID: 2786652135533651321}
   npcSelf: {fileID: -8213110083878852113}
   moveDirection: {x: 0, y: 0, z: 0}
   rb: {fileID: -252856212998483230}
   mainAttack: {fileID: 8832416379490874571, guid: f0750984bc34495588dd8817cc623284, type: 3}
   mainAttackInstance: {fileID: 0}
   cam: {fileID: 0}
---- !u!114 &8525481770958903851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243808147526584338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8412bd8b7139b9daee1b0ef82bbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: Reisen
-  health: 100
-  maxHealth: 100
-  defense: 0
-  invulnerable: 0
-  rb: {fileID: -252856212998483230}
-  unitsInRange: []
-  closestTarget: {fileID: 0}
-  speed: 7
-  damage: 10
-  attackSpeed: 1
-  canAttack: 1
-  canMove: 1
-  audioSource: {fileID: 1528591134725528693}
 --- !u!114 &-8213110083878852113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +483,33 @@ MonoBehaviour:
   maximumPlayerDistance: 3
   closestTargetDistance: 2
   maximumTargetDistance: 3
+--- !u!114 &2786652135533651321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243808147526584338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3db8956d056ac768a3631019d7fc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Reisen
+  health: 12
+  maxHealth: 12
+  defense: 0
+  invulnerable: 0
+  rb: {fileID: -252856212998483230}
+  unitsInRange: []
+  closestTarget: {fileID: 0}
+  speed: 7
+  damage: 10
+  attackSpeed: 1
+  canAttack: 1
+  canMove: 1
+  audioSource: {fileID: 1528591134725528693}
+  healthBar: {fileID: 0}
 --- !u!1 &2144255912444815009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,4 +1200,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e2a72317ea180a593851522c84a43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 8525481770958903851}
+  entity: {fileID: 2786652135533651321}

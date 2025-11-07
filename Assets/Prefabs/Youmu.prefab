@@ -49,8 +49,8 @@ GameObject:
   - component: {fileID: -6851084343553183493}
   - component: {fileID: 7806300560208359255}
   - component: {fileID: -7857584088128571849}
-  - component: {fileID: 523394275758209709}
   - component: {fileID: 957067160410291685}
+  - component: {fileID: 56219395129426630}
   m_Layer: 6
   m_Name: Youmu
   m_TagString: Friendly
@@ -314,39 +314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449b1eb1b0eb3002bb16f46769354e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 523394275758209709}
+  stats: {fileID: 56219395129426630}
   npcSelf: {fileID: 957067160410291685}
   moveDirection: {x: 0, y: 0, z: 0}
   rb: {fileID: -6851084343553183493}
   mainAttack: {fileID: 2055712389439181034, guid: 1f59c5e2f4b0334f894378bc9b43674e, type: 3}
   mainAttackInstance: {fileID: 0}
   cam: {fileID: 0}
---- !u!114 &523394275758209709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696413849732724214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8412bd8b7139b9daee1b0ef82bbf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: Youmu
-  health: 10
-  maxHealth: 10
-  defense: 0
-  invulnerable: 0
-  rb: {fileID: -6851084343553183493}
-  unitsInRange: []
-  closestTarget: {fileID: 0}
-  speed: 8
-  damage: 10
-  attackSpeed: 1
-  canAttack: 1
-  canMove: 1
-  audioSource: {fileID: 7806300560208359255}
 --- !u!114 &957067160410291685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,8 +336,35 @@ MonoBehaviour:
   playerController: {fileID: -7857584088128571849}
   playerToFollow: {fileID: 0}
   maximumPlayerDistance: 3
-  closestTargetDistance: 1
-  maximumTargetDistance: 3
+  closestTargetDistance: 0.5
+  maximumTargetDistance: 1
+--- !u!114 &56219395129426630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696413849732724214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3db8956d056ac768a3631019d7fc40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Youmu
+  health: 12
+  maxHealth: 12
+  defense: 0
+  invulnerable: 0
+  rb: {fileID: -6851084343553183493}
+  unitsInRange: []
+  closestTarget: {fileID: 0}
+  speed: 8
+  damage: 10
+  attackSpeed: 1
+  canAttack: 1
+  canMove: 1
+  audioSource: {fileID: 7806300560208359255}
+  healthBar: {fileID: 0}
 --- !u!1 &3263570441051338648
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e2a72317ea180a593851522c84a43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 523394275758209709}
+  entity: {fileID: 56219395129426630}
 --- !u!1 &4029833637580383203
 GameObject:
   m_ObjectHideFlags: 0

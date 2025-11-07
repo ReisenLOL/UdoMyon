@@ -48,11 +48,11 @@ public class Entity : MonoBehaviour //entity and unit are for health and stats o
         }
         return foundEntity;
     }
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damageTaken)
     {
         if (!invulnerable)
         {
-            health -= damage - defense; 
+            health -= damageTaken - defense; 
             //onHitDamageNumber.Spawn(transform.position, damage);
             if (health <= 0)
             {

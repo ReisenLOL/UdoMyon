@@ -8,8 +8,13 @@ public class Enemy : MonoBehaviour
     public UnitStats stats;
     public float closestTargetDistance;
     public float maximumTargetDistance;
+    public EnemyAttack mainAttack;
 
-    
+    private void Update()
+    {
+        mainAttack.TryAttack();
+    }
+
     private void FixedUpdate()
     {
         if (stats.closestTarget)
