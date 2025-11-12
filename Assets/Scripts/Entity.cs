@@ -52,7 +52,8 @@ public class Entity : MonoBehaviour //entity and unit are for health and stats o
     {
         if (!invulnerable)
         {
-            health -= damageTaken - defense; 
+            health -= damageTaken - defense;
+            health = Mathf.Clamp(health, 0f, maxHealth);
             //onHitDamageNumber.Spawn(transform.position, damage);
             if (health <= 0)
             {

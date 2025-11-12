@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueList:
   - character: {fileID: 11400000, guid: 7da14a87414a4a8788e6105353e4a4b6, type: 2}
-    text: hej
+    text: test dialogue
   - character: {fileID: 11400000, guid: 6d40598bbd92071079cbf8ac0cd8b58b, type: 2}
-    text: hi
+    text: test dialogue number 2 the sequel

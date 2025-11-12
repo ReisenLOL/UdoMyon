@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     public void ContinueDialogue()
     {
         currentText++;
-        if (currentText == dialogueToShow.dialogueList[currentText].text.Length)
+        if (currentText == dialogueToShow.dialogueList.Length)
         {
             EndDialogue();
             return;

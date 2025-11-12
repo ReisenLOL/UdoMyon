@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Identification")] 
+    public Sprite portrait;
     [Header("Unit")]
-    public UnitStats stats;
+    public PlayerStats stats;
     public NPCController npcSelf;
     [Header("Movement")]
     public Vector3 moveDirection;

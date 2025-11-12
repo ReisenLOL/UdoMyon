@@ -6,10 +6,14 @@ public class Enemy : MonoBehaviour
 {
     public Rigidbody2D rb;
     public UnitStats stats;
+    public EnemyAttack mainAttack;
+    
+    [Header("Movement")]
+    public Transform[] possibleDirections;
     public float closestTargetDistance;
     public float maximumTargetDistance;
-    public EnemyAttack mainAttack;
-
+    public float forwardPercent;
+    public float strafePercent;
     private void Update()
     {
         mainAttack.TryAttack();
@@ -20,18 +24,46 @@ public class Enemy : MonoBehaviour
         if (stats.closestTarget)
         {
             float distanceToTarget = Vector3.Distance(stats.closestTarget.transform.position, transform.position);
+            Vector3 directionToTarget = (stats.closestTarget.transform.position - transform.position).normalized;
+            Vector3 directionToMove = directionToTarget;
+            float currentHighestScore = float.NegativeInfinity;
+            Vector3 strafeDirection = new Vector3(directionToTarget.y, -directionToTarget.x);
+            Vector3 directionToStrafe = strafeDirection;
+            foreach (Transform direction in possibleDirections)
+            {
+                Vector3 directionToPoint = (direction.position - transform.position).normalized;
+                float forwardScore = Vector3.Dot(directionToPoint, directionToTarget);
+                float strafeScore = Vector3.Dot(directionToPoint, strafeDirection);
+                float finalScore = (forwardScore * forwardPercent) + (strafeScore * strafePercent);
+                //Debug.Log($"Forward: {forwardScore} Strafe: {strafeScore} Final: {finalScore}");
+                if (finalScore > currentHighestScore)
+                {
+                    //Debug.Log($"{finalScore} is higher than current score: {currentHighestScore}");
+                    currentHighestScore = finalScore;
+                    directionToMove = directionToPoint;
+                    directionToStrafe = new Vector3(directionToPoint.y, -directionToPoint.x);;
+                }
+            }
             if (distanceToTarget < closestTargetDistance)
             {
-                rb.linearVelocity = -(stats.closestTarget.transform.position - transform.position).normalized * stats.speed;
+                rb.linearVelocity = -directionToTarget * stats.speed;
             }
-            else if (distanceToTarget >= closestTargetDistance && distanceToTarget <= maximumTargetDistance)
+            else if (distanceToTarget >= closestTargetDistance && distanceToTarget < maximumTargetDistance)
             {
-                rb.linearVelocity = Vector3.zero;
+                forwardPercent = 0.1f; 
+                strafePercent = 0.9f;
+                rb.linearVelocity = directionToStrafe * stats.speed;
             }
             else
             {
-                rb.linearVelocity = (stats.closestTarget.transform.position - transform.position).normalized * stats.speed;
+                forwardPercent = 0.5f; 
+                strafePercent = 0.5f;
+                rb.linearVelocity = directionToMove * stats.speed;
             }
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
         }
     }
 }

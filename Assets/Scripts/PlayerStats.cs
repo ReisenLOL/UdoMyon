@@ -15,7 +15,7 @@ public class PlayerStats : UnitStats
         base.TakeDamage(damage);
         UpdateHealthBar();
     }
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.transform.localScale = new Vector3(health/maxHealth, 1f,1f);
     }

@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSwitcher : MonoBehaviour
 {
@@ -19,10 +20,12 @@ public class PlayerSwitcher : MonoBehaviour
     #endregion
 
     [Header("UI")] 
-    public Transform playerArrow;
-
-    public Transform player1;
-    public Transform player2;
+    public Image primaryPlayerImage;
+    public Image secondaryPlayerImage;
+    public TextMeshProUGUI primaryPlayerName;
+    public TextMeshProUGUI secondaryPlayerName;
+    public Transform primaryPlayerHealthBar;
+    public Transform secondaryPlayerHealthBar;
     [Header("Players")]
     public PlayerController[] players;
     public Camera cam;
@@ -44,15 +47,24 @@ public class PlayerSwitcher : MonoBehaviour
 
     private void SwitchPlayer(int playerNumber)
     {
+        primaryPlayerImage.sprite = players[playerNumber].portrait; //this code sucks btw
+        primaryPlayerName.text = players[playerNumber].name;
+        players[playerNumber].stats.healthBar = primaryPlayerHealthBar;
+        players[playerNumber].stats.UpdateHealthBar();
         if (playerNumber == 0)
         {
-            playerArrow.transform.SetParent(player1);
+            secondaryPlayerImage.sprite = players[1].portrait; //this code also sucks btw
+            secondaryPlayerName.text = players[1].name;
+            players[1].stats.healthBar = secondaryPlayerHealthBar;
+            players[1].stats.UpdateHealthBar();
         }
         else
         {
-            playerArrow.transform.SetParent(player2);
+            secondaryPlayerImage.sprite = players[0].portrait; //this code still sucks btw
+            secondaryPlayerName.text = players[0].name;
+            players[0].stats.healthBar = secondaryPlayerHealthBar;
+            players[0].stats.UpdateHealthBar();
         }
-        playerArrow.localPosition = new Vector3(-200, 0, 0);
         cineCam.Follow = players[playerNumber].transform;
         foreach (PlayerController player in players)
         {
