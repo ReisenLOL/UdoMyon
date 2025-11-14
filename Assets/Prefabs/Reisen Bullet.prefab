@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1079284437097681627}
   - component: {fileID: 2600362305563307476}
   - component: {fileID: 817110656715647019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Reisen Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,3 +179,4 @@ MonoBehaviour:
   damage: 0
   timeUntilAutoDestroy: 4
   knockbackForce: 5
+  originEntity: {fileID: 0}

@@ -42967,7 +42967,8 @@ GameObject:
   - component: {fileID: 1118170093}
   - component: {fileID: 1118170092}
   - component: {fileID: 1118170091}
-  m_Layer: 0
+  - component: {fileID: 1118170094}
+  m_Layer: 3
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43090,6 +43091,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1118170094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118170090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037185fbf37ca011cac0d139308c84f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorToOpen: {fileID: 1390249007}
 --- !u!1 &1130981081
 GameObject:
   m_ObjectHideFlags: 0
@@ -43256,7 +43270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 957067160410291685, guid: 8adec239410e0053c8f7b9001837671e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 957067160410291685, guid: 8adec239410e0053c8f7b9001837671e, type: 3}
       propertyPath: playerToFollow
